@@ -28,6 +28,33 @@
 
 
         <div class="container">
+          <h2>Core</h2>
+            <div>Listado de Proveedores</div>
+            <div class="row">
+              <table class="table">
+                <thead>
+                <tr><th>Id</th><th>Nombre</th><th>Telefono</th><th>Direccion</th><th>email</th><th>Pais</th><th>Moneda</th></tr>
+                </thead>
+                <tbody>
+                {% for Proveedor in proveedor%}
+                <tr>
+                  <td>{{Proveedor.Idprov}}</td>
+                  <td>{{Proveedor.nombre}}</td>
+                  <td>{{Proveedor.telefono}}</td>
+                  <td>{{Proveedor.direccion}}</td>
+                  <td>{{Proveedor.email}}</td>
+                  <td>{{Proveedor.pais}}</td>
+                  <td>{{Proveedor.moneda}}</td>
+                  <td>
+                    <a href="{% url 'form_mod_proveedor' Proveedor.Idprov %}">Modificar</a>
+                    <a href="{% url 'form_del_proveedor' Proveedor.Idprov %}">Eliminar</a>
+                  </td>
+                  {% endfor%}
+                </tbody>
+              </table>
+              <a href="{% url 'form_proveedor'%}">Crear Proveedor</a>
+
+            </div>
            
             <footer class="footer">
               Beatriz Tapia, @Copyrigth Derechos reservados
